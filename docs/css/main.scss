@@ -1,0 +1,182 @@
+/*****************************************************
+                         CONSTANTS                           
+*****************************************************/
+
+$darkCyan: hsl(185, 75%, 39%);
+$darkBlue: hsl(229, 23%, 23%);
+$darkGrayBlue: hsl(227, 10%, 46%);
+
+$darkGray:  hsl(227, 10%, 46%);
+
+
+$borderRadius: 1rem;
+
+/*****************************************************
+                         RESETS                           
+*****************************************************/
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    height: 100vh;
+    background: $darkCyan;
+    font-family: 'Kumbh Sans';
+    overflow: hidden;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+
+
+/*****************************************************
+                      MAIN STYLES                           
+*****************************************************/
+
+body::before {
+    content: '';
+    position: absolute;
+    background-image: url('/img/bg-pattern-top.svg');
+    width: 50%;
+    height: 100%;
+    left: 0%;
+    top: -50%;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    background-image: url('/img/bg-pattern-bottom.svg');
+    width: 50%;
+    height: 100%;
+    right: 0%;
+    bottom: -50%;
+    z-index: -1;
+}
+
+
+.card {
+    box-shadow: 0 32px 4rem -2px hsla(229, 23%, 23%, 0.4);
+    display: flex;
+    flex-direction: column;
+    border-radius: $borderRadius;
+    backface-visibility: hidden;
+}
+
+
+.card-header, .card-body,.card-footer {
+    padding: 0.5rem 2rem;
+    border: transparent;
+}
+
+.card-body h1 {
+    margin-bottom: 0;
+}
+
+.card-header {
+    background-image: url('/img/bg-pattern-card.svg');
+    background-size: cover;
+    height: 9rem;
+    border-radius: $borderRadius $borderRadius 0 0;
+}
+.card-body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body__img {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body__details {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p:last-child {
+        margin-top: 0;
+    }
+    .name {
+        color: $darkBlue;
+        font-weight: 700;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .age {
+        padding-left: 0.3rem;
+        color: $darkGray;
+        font-weight: 400;
+    }
+    .city {
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: $darkGray
+    }
+}
+
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid hsl(0, 0%, 92%);
+    border-radius: 0 0 $borderRadius $borderRadius;
+}
+.stats {
+    font-size: 0.9rem;
+    margin: 0 1.7rem;
+    &__numbers {
+        margin-bottom: 0;
+        text-align: center;
+    }
+    &__text {
+        margin-top: .5rem;
+        font-size: 0.8em;
+        color: $darkGray;
+        text-align: center;
+    }
+}
+
+
+.card-footer, .card-body {
+    background: white;
+}
+
+
+.card-body img {
+    position: absolute;
+    top: -52px;
+    border: 0.4rem solid white;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+
+/*****************************************************
+                    RESPONSIVE STYLEs                           
+*****************************************************/
+
+
+
+@media screen and (max-width: 400px ) {
+    body::after {
+        content: '';
+        position: absolute;
+        right: 0;
+    }
+}
